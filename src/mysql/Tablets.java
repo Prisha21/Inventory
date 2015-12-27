@@ -10,6 +10,6 @@ package mysql;
  *
  * @author Prisha
  */
-public class Tablets {
+public class Tablets extends Item{
     
 }

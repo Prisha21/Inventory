@@ -10,7 +10,7 @@ package mysql;
  *
  * @author Prisha
  */
-public class Laptop {
+public class Laptop extends Item{
     
     private String modelNo;
     private String brand;
@@ -30,7 +30,10 @@ public class Laptop {
         this.quantity=quantity;
         this.city=city;
     }
-    
+
+    public Laptop() {
+    }
+
     public String getModelNo()
     {
         return modelNo;
