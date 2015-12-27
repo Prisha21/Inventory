@@ -1,6 +1,4 @@
 
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import mysql.Item;
 import mysql.Laptop;
 import mysql.Mobile;
