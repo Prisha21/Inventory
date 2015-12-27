@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mysql;
 
 /**
  *
  * @author Prisha
  */
-public class Tablets extends Item{
+public class Item {
     
 }

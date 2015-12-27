@@ -10,7 +10,7 @@ package mysql;
  *
  * @author Prisha
  */
-public class Mobile {
+public class Mobile extends Item{
     
     
 }
