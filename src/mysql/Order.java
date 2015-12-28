@@ -14,12 +14,13 @@ import java.util.ArrayList;
 public class Order {
     
     private ArrayList<Item> items;
-
+    
+    public Order() {
+        items = new ArrayList<Item>();
+    }
+    
     public Order(ArrayList<Item> items) {
         this.items = items;
-    }
-
-    public Order() {
     }
 
     public ArrayList<Item> getItems() {
@@ -28,5 +29,18 @@ public class Order {
 
     public void setItems(ArrayList<Item> items) {
         this.items = items;
+    }
+    
+    public void addItem(Item item) {
+        this.items.add(item);
+    }
+    
+    public void stringify() {
+        
+        System.out.println("Order details are as follows :: ");
+        
+        for(Item item : this.items) {
+            item.stringify();
+        }
     }
 }

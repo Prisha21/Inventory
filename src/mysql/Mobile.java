@@ -12,5 +12,10 @@ package mysql;
  */
 public class Mobile extends Item{
     
+    public Mobile() {
+    }
     
+    public Mobile(int quantity, String city, String modelNo) {
+        super(quantity, city, modelNo,DBConstants.MOBILE);
+    }
 }

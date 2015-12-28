@@ -11,5 +11,11 @@ package mysql;
  * @author Prisha
  */
 public class Television extends Item{
+
+    public Television() {
+    }
     
+    public Television(int quantity, String city, String modelNo) {
+        super(quantity, city, modelNo,DBConstants.TELEVISION);
+    }
 }

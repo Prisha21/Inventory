@@ -11,5 +11,11 @@ package mysql;
  * @author Prisha
  */
 public class Tablets extends Item{
+     
+    public Tablets() {
+    }
     
+    public Tablets(int quantity, String city, String modelNo) {
+        super(quantity, city, modelNo,DBConstants.TABLET);
+    }
 }

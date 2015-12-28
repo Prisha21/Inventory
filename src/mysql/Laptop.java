@@ -12,33 +12,27 @@ package mysql;
  */
 public class Laptop extends Item{
     
-    private String modelNo;
     private String brand;
     private float price;
     private String screenSize;
     private String processor;
-    private int quantity;
-    private String city;
+    
+    public Laptop() {
+        
+    }
+    
+    public Laptop(String city, int quantity, String modelNumber) {
+      super(quantity, city, modelNumber,DBConstants.LAPTOP);
+    }
     
     public Laptop(String modelNo, String brand , float price, String screenSize, String processor, int quantity, String city) {
-        
-        this.modelNo = modelNo;
+        super(quantity, city, modelNo,DBConstants.LAPTOP);
         this.brand = brand;
         this.price = price;
         this.screenSize = screenSize;
         this.processor=processor;
-        this.quantity=quantity;
-        this.city=city;
     }
 
-    public Laptop() {
-    }
-
-    public String getModelNo()
-    {
-        return modelNo;
-    }
-    
     public String getBrand()
     {
         return brand;
@@ -59,21 +53,6 @@ public class Laptop extends Item{
         return processor;
     }
     
-    public String getCity()
-    {
-        return city;
-    }
-    
-    public String getQuantity()
-    {
-        return modelNo;
-    }
-    
-    public void setModelNo()
-    {
-        this.modelNo = modelNo;
-    }
-    
     public void setBrand()
     {
         this.brand = brand;
@@ -92,15 +71,5 @@ public class Laptop extends Item{
     public void setProcessor()
     {
         this.processor = processor;
-    }
-    
-    public void setCity()
-    {
-        this.city = city;
-    }
-    
-    public void setQuantity()
-    {
-        this.quantity = quantity;
     }
 }

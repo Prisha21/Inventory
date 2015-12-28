@@ -96,6 +96,14 @@ public class DBManager {
         }
     }
     
+    public static void addOrder(Order order) {
+        
+        /*
+            Add the order to the DB
+            Leave this code for the time being
+        */
+    }
+    
     public static void addLaptop(Laptop laptop)
     {
         
