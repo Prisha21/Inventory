@@ -9,36 +9,31 @@ package mysql;
  *
  * @author Prisha
  */
-public class Television extends Item {
+public class Television extends Item{
 
-    private String modelNo;
     private String brand;
     private float price;
     private String screenSize;
     private int screenResolutionHeight;
     private int screenResolutionWidth;
-    private int quantity;
-    private int city;
 
     public Television(String modelNo, String brand, float price, String screenSize, int screenResolutionHeight, int screenResolutionWidth, int quantity, int city) {
-
-        this.modelNo = modelNo;
+        
+        super(quantity, city, modelNo, DBConstants.TELEVISION);
         this.brand = brand;
         this.price = price;
         this.screenSize = screenSize;
         this.screenResolutionHeight = screenResolutionHeight;
         this.screenResolutionWidth = screenResolutionWidth;
-        this.quantity = quantity;
-        this.city = city;
     }
 
     public Television() {
     }
-
-    public String getModelNo() {
-        return modelNo;
+    
+    public Television(int quantity, int city, String modelNo) {
+        super(quantity, city, modelNo,DBConstants.TELEVISION);
     }
-
+    
     public String getBrand() {
         return brand;
     }
@@ -52,23 +47,11 @@ public class Television extends Item {
     }
 
     public int getScreenResolutionHeight() {
-        return getScreenResolutionHeight();
+        return screenResolutionHeight;
     }
 
     public int getScreenResolutionWidth() {
         return screenResolutionWidth;
-    }
-
-    public int getCity() {
-        return city;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setModelNo(String modelNo) {
-        this.modelNo = modelNo;
     }
 
     public void setScreenSize(String screenSize) {
@@ -89,13 +72,5 @@ public class Television extends Item {
 
     public void setScreenResolutionWidth(int screenResolutionWidth) {
         this.screenResolutionWidth = screenResolutionWidth;
-    }
-
-    public void setCity(int city) {
-        this.city = city;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 }

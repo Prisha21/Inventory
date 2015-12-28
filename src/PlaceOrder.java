@@ -1,4 +1,6 @@
 
+import mysql.DBConstants;
+import mysql.DBManager;
 import mysql.Item;
 import mysql.Laptop;
 import mysql.Mobile;
@@ -24,6 +26,7 @@ public class PlaceOrder extends javax.swing.JFrame {
      * Creates new form PlaceOrder
      */
     public PlaceOrder() {
+        this.order = new Order();
         initComponents();
     }
     
@@ -232,6 +235,10 @@ public class PlaceOrder extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        
+        this.order.stringify();
+        DBManager.addOrder(this.order);
+        
         FetchList fetchList = new FetchList();
         this.setVisible(false);
         fetchList.setVisible(true);
@@ -272,35 +279,36 @@ public class PlaceOrder extends javax.swing.JFrame {
         jLabel4.setText("No. of items in your cart: " + getCount());
         
         Item item = createItem();
-        
+        this.order.addItem(item);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private Item createItem() {
         
         String category = (String) jComboBox2.getSelectedItem();
+        int city = (int) jComboBox1.getSelectedItem();
+        String modelNo = (String) jComboBox3.getSelectedItem();
         
-        switch(category.toLowerCase()) {
+        switch(category) {
             
-            case "laptop":
-               Laptop laptop = new Laptop();
+            case DBConstants.LAPTOP:
+               Laptop laptop = new Laptop(city, 1, modelNo);
                return laptop;
                
-            case "mobile":
-               Mobile mobile = new Mobile();
+            case DBConstants.MOBILE:
+               Mobile mobile = new Mobile(1,city,modelNo);
                return mobile;
                
-            case "tablets":
-               Tablets tablets = new Tablets();
+            case DBConstants.TABLET:
+               Tablets tablets = new Tablets(1,city,modelNo);
                return tablets;
                 
-            case "television":
-                Television television = new  Television();
+            case DBConstants.TELEVISION:
+                Television television = new  Television(1, city, modelNo);
                 return television;
                 
             default:
-                Item item = new Item();
                 System.out.println(category.toLowerCase());
-                return item;
+                return null;
         }
     }
     
@@ -344,7 +352,7 @@ public class PlaceOrder extends javax.swing.JFrame {
             public void run() {
                 PlaceOrder placeOrder = new PlaceOrder();
                 placeOrder.jLabel4.setText("No. of items in your cart: " + placeOrder.getCount());
-                placeOrder.order = new Order();
+                placeOrder.jComboBox2.addItem(DBConstants.LAPTOP);
                 placeOrder.setVisible(true);
             }
         });

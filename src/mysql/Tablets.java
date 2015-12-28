@@ -11,31 +11,25 @@ package mysql;
  * @author Prisha
  */
 public class Tablets extends Item{
-     private String modelNo;
     private String brand;
     private float price;
     private String screenSize;
     private String operatingSystem;
-    private int quantity;
-    private int city;
     
     public Tablets(String modelNo, String brand , float price, String screenSize, String operatingSystem, int quantity, int city) {
         
-        this.modelNo = modelNo;
+        super(quantity, city, modelNo, DBConstants.TABLET);
         this.brand = brand;
         this.price = price;
         this.screenSize = screenSize;
         this.operatingSystem=operatingSystem;
-        this.quantity=quantity;
-        this.city=city;
     }
 
+    public Tablets(int quantity, int city, String modelNo) {
+        super(quantity, city, modelNo,DBConstants.TABLET);
+    }
+     
     public Tablets() {
-    }
-
-    public String getModelNo()
-    {
-        return modelNo;
     }
     
     public String getBrand()
@@ -58,21 +52,6 @@ public class Tablets extends Item{
         return operatingSystem;
     }
     
-    public int getCity()
-    {
-        return city;
-    }
-    
-    public int getQuantity()
-    {
-        return quantity;
-    }
-    
-    public void setModelNo(String modelNo)
-    {
-        this.modelNo = modelNo;
-    }
-    
     public void setBrand(String brand)
     {
         this.brand = brand;
@@ -91,16 +70,5 @@ public class Tablets extends Item{
     public void setOperatingSystem(String operatingSystem)
     {
         this.operatingSystem = operatingSystem;
-    }
-    
-    public void setCity(int city)
-    {
-        this.city = city;
-    }
-    
-    public void setQuantity(int quantity)
-    {
-        this.quantity = quantity;
-    }
-    
+    }       
 }

@@ -93,7 +93,15 @@ public class DBManager {
             System.out.println(e);
         }
     }
-
+    
+    public static void addOrder(Order order) {
+        
+        /*
+            Add the order to the DB
+            Leave this code for the time being
+        */
+    }
+    
     public static void addLaptop(Laptop laptop) {
         try {
             String sql = "insert into laptop_table values (?,?,?,?,?,?,?)";
@@ -110,7 +118,6 @@ public class DBManager {
         } catch (Exception e) {
             System.out.println(e);
         }
-
     }
 
     public static void addMobile(Mobile mobile) {
