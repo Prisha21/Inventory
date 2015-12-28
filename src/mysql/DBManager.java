@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mysql;
 
 import java.sql.Connection;
@@ -16,11 +15,11 @@ import java.util.ArrayList;
  * @author Prisha
  */
 public class DBManager {
-    
+
     private final static Connection conn = ConnectionManager.getConnection();
-    
+
     public static void handleUserSignUp(Admin admin) {
-        
+
         try {
             String sql = "insert into user_table values (?,?,?,?)";
             PreparedStatement pst = conn.prepareStatement(sql);
@@ -29,64 +28,63 @@ public class DBManager {
             pst.setString(3, admin.getEmailId());
             pst.setString(4, admin.getName());
             pst.executeUpdate();
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-    
+
     public static String getUserPassword(String userName) {
-     
+
         try {
             String pass;
-            String sql="Select password from user_table where user_name=?";
+            String sql = "Select password from user_table where user_name=?";
             PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1,userName);
+            pst.setString(1, userName);
             ResultSet rs = pst.executeQuery();
-            
-            if(rs.next()) {
-                pass=rs.getString(1);
+
+            if (rs.next()) {
+                pass = rs.getString(1);
                 return pass;
             }
-            
-           return null;
-           
+
+            return null;
+
         } catch (Exception e) {
             System.out.println(e);
             return null;
         }
     }
-    
+
     // This will be used in the main function of AddItem code to populatee the list
     public static ArrayList<String> getAllCategories() {
-        
+
         try {
-            String sql="Select category_name from category_table";
+            String sql = "Select category_name from category_table";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
             ArrayList<String> catNames = new ArrayList<>();
-            
-            while(rs.next()) {
+
+            while (rs.next()) {
                 catNames.add(rs.getString(2));
             }
-            
+
             return catNames;
-            
+
         } catch (Exception e) {
             System.out.println(e);
             return null;
         }
     }
-    
+
     public static Admin getUserDetails(String userName) {
         // To be used 
         return null;
     }
-    
-    public static void addCategory(Category category)
-    {
+
+    public static void addCategory(Category category) {
         try {
-            String sql="insert into category_table values (NULL,?)";
+            String sql = "insert into category_table values (NULL,?)";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, category.getCategoryName());
             Integer a = pst.executeUpdate();
@@ -104,23 +102,84 @@ public class DBManager {
         */
     }
     
-    public static void addLaptop(Laptop laptop)
-    {
-        
+    public static void addLaptop(Laptop laptop) {
+        try {
+            String sql = "insert into laptop_table values (?,?,?,?,?,?,?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, laptop.getModelNo());
+            pst.setString(2, laptop.getBrand());
+            pst.setFloat(3, laptop.getPrice());
+            pst.setString(4, laptop.getScreenSize());
+            pst.setString(5, laptop.getProcessor());
+            pst.setInt(6, laptop.getCity());
+            pst.setInt(7, laptop.getQuantity());
+            int a = pst.executeUpdate();
+            System.out.println(a);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
-    
-    public static void addMobile(Mobile mobile)
-    {
-        
+
+    public static void addMobile(Mobile mobile) {
+        try {
+            String sql = "insert into mobile_table values (?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, mobile.getModelNo());
+            pst.setString(2, mobile.getBrand());
+            pst.setFloat(3, mobile.getPrice());
+            pst.setString(4, mobile.getScreenSize());
+            pst.setFloat(5, mobile.getFrontCamera());
+            pst.setFloat(6, mobile.getRearCamera());
+            pst.setString(7, mobile.getOperatingSystem());
+            pst.setFloat(8, mobile.getRam());
+            pst.setInt(9, mobile.getCity());
+            pst.setInt(10, mobile.getQuantity());
+            int a = pst.executeUpdate();
+            System.out.println(a);
+
+        } catch (Exception e) {
+            System.out.println();
+        }
+
     }
-    
-    public static void addTablet(Tablets tablet)
-    {
-        
+
+    public static void addTablet(Tablets tablet) {
+        try {
+             String sql = "insert into tablets_table values (?,?,?,?,?,?,?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, tablet.getModelNo());
+            pst.setString(2, tablet.getBrand());
+            pst.setFloat(3, tablet.getPrice());
+            pst.setString(4, tablet.getScreenSize());
+            pst.setString(5, tablet.getOperatingSystem());
+            pst.setInt(6, tablet.getCity());
+            pst.setInt(7, tablet.getQuantity());
+            int a = pst.executeUpdate();
+            System.out.println(a);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
-    
-    public static void addTelevision(Television television)
-    {
-        
+
+    public static void addTelevision(Television television) {
+        try {
+            String sql = "insert into television_table values (?,?,?,?,?,?,?,?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, television.getModelNo());
+            pst.setString(2, television.getBrand());
+            pst.setFloat(3, television.getPrice());
+            pst.setString(4, television.getScreenSize());
+            pst.setFloat(5, television.getScreenResolutionHeight());
+            pst.setFloat(6, television.getScreenResolutionWidth());
+            pst.setInt(7, television.getCity());
+            pst.setInt(8, television.getQuantity());
+            int a = pst.executeUpdate();
+            System.out.println(a);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
     }
 }

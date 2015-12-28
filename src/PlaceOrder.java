@@ -285,7 +285,7 @@ public class PlaceOrder extends javax.swing.JFrame {
     private Item createItem() {
         
         String category = (String) jComboBox2.getSelectedItem();
-        String city = (String) jComboBox1.getSelectedItem();
+        int city = (int) jComboBox1.getSelectedItem();
         String modelNo = (String) jComboBox3.getSelectedItem();
         
         switch(category) {

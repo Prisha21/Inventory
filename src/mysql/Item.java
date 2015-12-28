@@ -13,13 +13,13 @@ public abstract class Item {
     
     protected String category;
     protected int quantity;
-    protected String city;
+    protected int city;
     protected String modelNo;
 
     public Item() {
     }
     
-    public Item(int quantity, String city, String modelNo, String category) {
+    public Item(int quantity, int city, String modelNo, String category) {
         this.quantity = quantity;
         this.city = city;
         this.modelNo = modelNo;
@@ -35,7 +35,7 @@ public abstract class Item {
     }
     
     
-    public String getCity() {
+    public int getCity() {
         return city;
     }
 
@@ -47,7 +47,7 @@ public abstract class Item {
         return quantity;
     }
 
-    public void setCity(String city) {
+    public void setCity(int city) {
         this.city = city;
     }
 

@@ -17,15 +17,11 @@ public class Laptop extends Item{
     private String screenSize;
     private String processor;
     
-    public Laptop() {
-        
-    }
-    
-    public Laptop(String city, int quantity, String modelNumber) {
+    public Laptop(int city, int quantity, String modelNumber) {
       super(quantity, city, modelNumber,DBConstants.LAPTOP);
     }
     
-    public Laptop(String modelNo, String brand , float price, String screenSize, String processor, int quantity, String city) {
+    public Laptop(String modelNo, String brand , float price, String screenSize, String processor, int quantity, int city) {
         super(quantity, city, modelNo,DBConstants.LAPTOP);
         this.brand = brand;
         this.price = price;
@@ -53,22 +49,22 @@ public class Laptop extends Item{
         return processor;
     }
     
-    public void setBrand()
+    public void setBrand(String brand)
     {
         this.brand = brand;
     }
     
-    public void setPrice()
+    public void setPrice(Float price)
     {
         this.price = price;
     }
     
-    public void setScreenSize()
+    public void setScreenSize(String screenSize)
     {
         this.screenSize = screenSize;
     }
     
-    public void setProcessor()
+    public void setProcessor(String processor)
     {
         this.processor = processor;
     }
