@@ -18,9 +18,9 @@ public class Laptop extends Item{
     private String screenSize;
     private String processor;
     private int quantity;
-    private String city;
+    private int city;
     
-    public Laptop(String modelNo, String brand , float price, String screenSize, String processor, int quantity, String city) {
+    public Laptop(String modelNo, String brand , float price, String screenSize, String processor, int quantity, int city) {
         
         this.modelNo = modelNo;
         this.brand = brand;
@@ -59,47 +59,47 @@ public class Laptop extends Item{
         return processor;
     }
     
-    public String getCity()
+    public int getCity()
     {
         return city;
     }
     
-    public String getQuantity()
+    public int getQuantity()
     {
-        return modelNo;
+        return quantity;
     }
     
-    public void setModelNo()
+    public void setModelNo(String modelNo)
     {
         this.modelNo = modelNo;
     }
     
-    public void setBrand()
+    public void setBrand(String brand)
     {
         this.brand = brand;
     }
     
-    public void setPrice()
+    public void setPrice(Float price)
     {
         this.price = price;
     }
     
-    public void setScreenSize()
+    public void setScreenSize(String screenSize)
     {
         this.screenSize = screenSize;
     }
     
-    public void setProcessor()
+    public void setProcessor(String processor)
     {
         this.processor = processor;
     }
     
-    public void setCity()
+    public void setCity(int city)
     {
         this.city = city;
     }
     
-    public void setQuantity()
+    public void setQuantity(int quantity)
     {
         this.quantity = quantity;
     }

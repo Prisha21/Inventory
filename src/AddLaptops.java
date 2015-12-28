@@ -1,3 +1,6 @@
+
+import mysql.Laptop;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -273,9 +276,9 @@ public class AddLaptops extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        OptionsHome optionsHome = new OptionsHome();
+        AddItem addItem = new AddItem();
         this.setVisible(false);
-        optionsHome.setVisible(true);
+        addItem.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

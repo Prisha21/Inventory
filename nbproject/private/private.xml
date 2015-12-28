@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Sachin/Documents/Personal/Inventory-Management/src/AddItem.java</file>
-            <file>file:/Users/Sachin/Documents/Personal/Inventory-Management/src/MyAccount.java</file>
-            <file>file:/Users/Sachin/Documents/Personal/Inventory-Management/src/AddCategory.java</file>
-            <file>file:/Users/Sachin/Documents/Personal/Inventory-Management/src/PlaceOrder.java</file>
-            <file>file:/Users/Sachin/Documents/Personal/Inventory-Management/src/mysql/Order.java</file>
-            <file>file:/Users/Sachin/Documents/Personal/Inventory-Management/src/Login.java</file>
+            <file>file:/C:/Users/PrishaGupta/Documents/NetBeansProjects/InventorySystem/src/mysql/DBManager.java</file>
+            <file>file:/C:/Users/PrishaGupta/Documents/NetBeansProjects/InventorySystem/src/mysql/Television.java</file>
+            <file>file:/C:/Users/PrishaGupta/Documents/NetBeansProjects/InventorySystem/src/mysql/Mobile.java</file>
         </group>
     </open-files>
 </project-private>
