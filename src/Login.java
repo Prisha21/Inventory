@@ -187,7 +187,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
        
-        String userName = jTextField1.getText();
+        String userName = (String)jTextField1.getText();
         String pwd = new String(jPasswordField1.getPassword());
         
         String dbPaswd = DBManager.getUserPassword(userName);
@@ -199,12 +199,14 @@ public class Login extends javax.swing.JFrame {
         }
 
         if (dbPaswd.equals(pwd)) {
+            System.out.println("hello");
             OptionsHome optionsHome = new OptionsHome();
             this.setVisible(false);
             optionsHome.setVisible(true);
         }
         
         else {
+            System.out.println("hell");
             setInvalidLoginLabelVisibility(true);;
             return;
         }

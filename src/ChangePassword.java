@@ -1,3 +1,6 @@
+
+import mysql.DBManager;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -154,11 +157,15 @@ public class ChangePassword extends javax.swing.JFrame {
         // TODO add your handling code here:
         String pwd = new String(jPasswordField2.getPassword());
         String cnfrmPwd = new String(jPasswordField3.getPassword());
-
-        if (pwd.equals(cnfrmPwd)) {
+        String currentPwd = new String(jPasswordField1.getPassword());
+        String dbPwd = DBManager.getUserPassword();
+        
+        if (pwd.equals(cnfrmPwd) && !currentPwd.equals(pwd) && currentPwd.equals(dbPwd)) {
             MyAccount myAccount = new MyAccount();
             this.setVisible(false);
             setInvalidChangePasswordLabelVisibility(false);
+            DBManager.changePassword(pwd);
+            myAccount.setFields();
             myAccount.setVisible(true);
             //enter code for changing password in db
         } else {

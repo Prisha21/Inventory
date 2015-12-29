@@ -34,11 +34,24 @@ public class DBManager {
         }
     }
 
+    public static void removeCity(String cityName) {
+        try {
+            String sql = "DELETE FROM city_table WHERE city_name = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, cityName);
+            int a = pst.executeUpdate();
+            System.out.println(a);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+    
     public static String getUserPassword(String userName) {
 
         try {
             String pass;
-            String sql = "Select password from user_table where user_name=?";
+            String sql = "Select password from user_table where user_name = ?";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, userName);
             ResultSet rs = pst.executeQuery();
@@ -55,8 +68,44 @@ public class DBManager {
             return null;
         }
     }
+    
+    public static String getUserPassword() {
 
-    // This will be used in the main function of AddItem code to populatee the list
+        try {
+            String pass;
+            String sql = "Select password from user_table";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                pass = rs.getString(1);
+                return pass;
+            }
+
+            return null;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+        
+    }
+    
+    public static void changePassword(String newPwd)
+    {
+        try {
+            String sql = "UPDATE user_table SET password = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, newPwd);
+            Integer a = pst.executeUpdate();
+            System.out.println(a);
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    // This will be used in the main function of AddItem code to populate the list
     public static ArrayList<String> getAllCategories() {
 
         try {
@@ -66,7 +115,7 @@ public class DBManager {
             ArrayList<String> catNames = new ArrayList<>();
 
             while (rs.next()) {
-                catNames.add(rs.getString(2));
+                catNames.add(rs.getString(1));
             }
 
             return catNames;
@@ -77,33 +126,106 @@ public class DBManager {
         }
     }
 
+    public static ArrayList<String> getAllCities() {
+
+        try {
+            String sql = "Select city_name from city_table";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            ArrayList<String> cityNames = new ArrayList<>();
+
+            while (rs.next()) {
+                cityNames.add(rs.getString(1));
+            }
+
+            return cityNames;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+    
+    public static String getUserName()
+    {
+        try {
+            String pass;
+            String sql = "select user_name from user_table";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                pass = rs.getString(1);
+                return pass;
+            }
+            return null;
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+    
+    
+    public static String getName()
+    {
+        try {
+            String pass;
+            String sql = "select name from user_table";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                pass = rs.getString(1);
+                return pass;
+            }
+            return null;
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+    
+    public static String getEmailId()
+    {
+        try {
+            String pass;
+            String sql = "select email_id from user_table";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                pass = rs.getString(1);
+                return pass;
+            }
+            return null;
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
     public static Admin getUserDetails(String userName) {
         // To be used 
         return null;
     }
 
-    public static void addCategory(Category category) {
-        try {
-            String sql = "insert into category_table values (NULL,?)";
-            PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, category.getCategoryName());
-            Integer a = pst.executeUpdate();
-            System.out.println(a);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-    
+
     public static void addOrder(Order order) {
-        
+
         /*
-            Add the order to the DB
-            Leave this code for the time being
-        */
+         Add the order to the DB
+         Leave this code for the time being
+         */
     }
-    
+
     public static void addLaptop(Laptop laptop) {
         try {
+            String sql1 = "select city_id where city_name = laptop.getCity()";
+            PreparedStatement pst1 = conn.prepareStatement(sql1);
+            ResultSet rs = pst1.executeQuery();
             String sql = "insert into laptop_table values (?,?,?,?,?,?,?)";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, laptop.getModelNo());
@@ -145,7 +267,7 @@ public class DBManager {
 
     public static void addTablet(Tablets tablet) {
         try {
-             String sql = "insert into tablets_table values (?,?,?,?,?,?,?)";
+            String sql = "insert into tablets_table values (?,?,?,?,?,?,?)";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, tablet.getModelNo());
             pst.setString(2, tablet.getBrand());
@@ -181,5 +303,19 @@ public class DBManager {
             System.out.println(e);
         }
 
+    }
+
+    public static void addCity(String cityName, Float longitude, Float latitude) {
+
+        try {
+            String sql = "insert into city_table values (NULL,cityName,longitude,latitude)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            //pst.setString(1, cityName);
+            int a = pst.executeUpdate();
+            System.out.println(a);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }

@@ -158,6 +158,7 @@ public class OptionsHome extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MyAccount myAccount = new MyAccount();
         this.setVisible(false);
+        myAccount.setFields();
         myAccount.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

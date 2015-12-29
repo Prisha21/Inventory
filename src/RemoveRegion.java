@@ -1,3 +1,6 @@
+
+import mysql.DBManager;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -159,9 +162,10 @@ public class RemoveRegion extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        OptionsHome optionsHome = new OptionsHome();
+        DBManager.removeCity((String) jComboBox1.getSelectedItem());
+        OptionWare optionsWare = new OptionWare();
         this.setVisible(false);
-        optionsHome.setVisible(true);
+        optionsWare.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
