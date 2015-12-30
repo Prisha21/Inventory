@@ -200,9 +200,9 @@ public class AddRegion extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        DBManager.addCity(jTextField1.getText(), Float.parseFloat(jTextField2.getText()), Float.parseFloat(jTextField3.getText()));
         OptionWare optionsWare = new OptionWare();
         this.setVisible(false);
-        DBManager.addCity(jTextField1.getText(), Float.parseFloat(jTextField2.getText()), Float.parseFloat(jTextField3.getText()));
         optionsWare.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 

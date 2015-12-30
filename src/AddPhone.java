@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import mysql.DBManager;
 import mysql.Mobile;
 
@@ -288,6 +289,9 @@ public class AddPhone extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         AddItem addItem = new AddItem();
+        addItem.emptyJComboBox1();
+        ArrayList<String> categories = DBManager.getAllCategories();
+        addItem.populateCtegories(categories);
         this.setVisible(false);
         addItem.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed

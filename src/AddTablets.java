@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import mysql.DBManager;
 import mysql.Tablets;
 
@@ -285,6 +286,9 @@ public class AddTablets extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         AddItem addItem = new AddItem();
+        addItem.emptyJComboBox1();
+        ArrayList<String> categories = DBManager.getAllCategories();
+        addItem.populateCtegories(categories);
         this.setVisible(false);
         addItem.setVisible(true);
 

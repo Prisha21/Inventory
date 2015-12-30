@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import mysql.DBManager;
 import mysql.Laptop;
 
@@ -277,7 +278,10 @@ public class AddLaptops extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        
         AddItem addItem = new AddItem();
+        Laptop laptop = new Laptop(jTextField1.getText(), jTextField2.getText(), Float.parseFloat(jTextField3.getText()), jTextField4.getText(), jTextField5.getText(),Integer.parseInt(jTextField7.getText()), (Integer) jComboBox1.getSelectedItem());
+        DBManager.addLaptop(laptop);
         this.setVisible(false);
         addItem.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -285,10 +289,12 @@ public class AddLaptops extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         AddItem addItem = new AddItem();
-        Laptop laptop = new Laptop(jTextField1.getText(), jTextField2.getText(), Float.parseFloat(jTextField3.getText()), jTextField4.getText(), jTextField5.getText(),Integer.parseInt(jTextField7.getText()), (Integer) jComboBox1.getSelectedItem());
-        DBManager.addLaptop(laptop);
+        addItem.emptyJComboBox1();
+        ArrayList<String> categories = DBManager.getAllCategories();
+        addItem.populateCtegories(categories);
         this.setVisible(false);
         addItem.setVisible(true);
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

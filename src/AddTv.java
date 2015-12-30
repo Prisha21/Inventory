@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import mysql.DBManager;
 import mysql.Television;
 /*
@@ -282,6 +283,9 @@ public class AddTv extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         AddItem addItem = new AddItem();
+        addItem.emptyJComboBox1();
+        ArrayList<String> categories = DBManager.getAllCategories();
+        addItem.populateCtegories(categories);
         this.setVisible(false);
         addItem.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed

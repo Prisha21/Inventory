@@ -109,7 +109,7 @@ public class DBManager {
     public static ArrayList<String> getAllCategories() {
 
         try {
-            String sql = "Select category_name from category_table";
+            String sql = "select category_name from category_table";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
             ArrayList<String> catNames = new ArrayList<>();
@@ -129,7 +129,7 @@ public class DBManager {
     public static ArrayList<String> getAllCities() {
 
         try {
-            String sql = "Select city_name from city_table";
+            String sql = "select city_name from city_table";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
             ArrayList<String> cityNames = new ArrayList<>();
@@ -308,9 +308,11 @@ public class DBManager {
     public static void addCity(String cityName, Float longitude, Float latitude) {
 
         try {
-            String sql = "insert into city_table values (NULL,cityName,longitude,latitude)";
+            String sql = "insert into city_table values (NULL,?,?,?)";
             PreparedStatement pst = conn.prepareStatement(sql);
-            //pst.setString(1, cityName);
+            pst.setString(1, cityName);
+            pst.setFloat(2, longitude);
+            pst.setFloat(3, latitude);
             int a = pst.executeUpdate();
             System.out.println(a);
 

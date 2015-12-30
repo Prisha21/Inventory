@@ -1,3 +1,12 @@
+
+import java.util.ArrayList;
+import mysql.DBConstants;
+import mysql.DBManager;
+import mysql.Laptop;
+import mysql.Mobile;
+import mysql.Tablets;
+import mysql.Television;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -83,6 +92,11 @@ public class AddItem extends javax.swing.JFrame {
         jLabel1.setText("Choose Category-");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -169,6 +183,48 @@ public class AddItem extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        
+        String category = (String) jComboBox1.getSelectedItem();
+        
+        switch(category) {
+            
+            case DBConstants.LAPTOP:
+                AddLaptops object = new AddLaptops();
+                this.setVisible(false);
+                object.setVisible(true);
+               
+            case DBConstants.MOBILE:
+                AddPhone object1 = new AddPhone();
+                this.setVisible(false);
+                object1.setVisible(true);
+               
+            case DBConstants.TABLET:
+                AddTablets object2 = new AddTablets();
+                this.setVisible(false);
+                object2.setVisible(true);
+                
+            case DBConstants.TELEVISION:
+                AddTv object3 = new AddTv();
+                this.setVisible(false);
+                object3.setVisible(true);
+                
+            default:
+                System.out.println(category.toLowerCase());
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+    
+    public void emptyJComboBox1() {
+        jComboBox1.removeAllItems();;
+    }
+    
+    public void populateCtegories(ArrayList<String> categories) {
+        for(String item : categories) {
+            jComboBox1.addItem(item);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -200,10 +256,9 @@ public class AddItem extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 AddItem addItem = new AddItem();
-
-               // Call DBMAnager get Categories
-                // Obtain ArrayList
-                // Iterate over list and addItem.choice1.add()
+                addItem.jComboBox1.removeAllItems();
+                ArrayList<String> categories = DBManager.getAllCategories();
+                addItem.populateCtegories(categories);
                 addItem.setVisible(true);
             }
         });
