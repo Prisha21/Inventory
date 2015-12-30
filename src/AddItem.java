@@ -188,6 +188,10 @@ public class AddItem extends javax.swing.JFrame {
         
         String category = (String) jComboBox1.getSelectedItem();
         
+        if(category == null){
+            return;
+        }
+        
         switch(category) {
             
             case DBConstants.LAPTOP:
@@ -216,13 +220,17 @@ public class AddItem extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
     
     public void emptyJComboBox1() {
-        jComboBox1.removeAllItems();;
+        jComboBox1.removeAllItems();
     }
     
     public void populateCtegories(ArrayList<String> categories) {
         for(String item : categories) {
             jComboBox1.addItem(item);
         }
+    }
+    
+    public void jComboBox1SetSelectedIndex(int index) {
+        jComboBox1.setSelectedIndex(index);
     }
     
     /**
@@ -256,9 +264,10 @@ public class AddItem extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 AddItem addItem = new AddItem();
-                addItem.jComboBox1.removeAllItems();
+                addItem.emptyJComboBox1();
                 ArrayList<String> categories = DBManager.getAllCategories();
                 addItem.populateCtegories(categories);
+                addItem.jComboBox1SetSelectedIndex(0);
                 addItem.setVisible(true);
             }
         });
