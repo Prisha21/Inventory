@@ -289,6 +289,7 @@ public class AddTablets extends javax.swing.JFrame {
         addItem.emptyJComboBox1();
         ArrayList<String> categories = DBManager.getAllCategories();
         addItem.populateCtegories(categories);
+        addItem.jComboBox1SetSelectedIndex(0);
         this.setVisible(false);
         addItem.setVisible(true);
 
