@@ -180,12 +180,6 @@ public class AddItem extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-        
         String category = (String) jComboBox1.getSelectedItem();
         
         if(category == null){
@@ -198,25 +192,34 @@ public class AddItem extends javax.swing.JFrame {
                 AddLaptops object = new AddLaptops();
                 this.setVisible(false);
                 object.setVisible(true);
+                break;
                
             case DBConstants.MOBILE:
                 AddPhone object1 = new AddPhone();
                 this.setVisible(false);
                 object1.setVisible(true);
+                break;
                
             case DBConstants.TABLET:
                 AddTablets object2 = new AddTablets();
                 this.setVisible(false);
                 object2.setVisible(true);
+                break;
                 
             case DBConstants.TELEVISION:
                 AddTv object3 = new AddTv();
                 this.setVisible(false);
                 object3.setVisible(true);
+                break;
                 
             default:
                 System.out.println(category.toLowerCase());
         }
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
     
     public void emptyJComboBox1() {
