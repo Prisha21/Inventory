@@ -278,12 +278,18 @@ public class AddLaptops extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        
+
         AddItem addItem = new AddItem();
-        Laptop laptop = new Laptop(jTextField1.getText(), jTextField2.getText(), Float.parseFloat(jTextField3.getText()), jTextField4.getText(), jTextField5.getText(),Integer.parseInt(jTextField7.getText()), (Integer) jComboBox1.getSelectedItem());
-        DBManager.addLaptop(laptop);
-        this.setVisible(false);
-        addItem.setVisible(true);
+        String id;
+        int cityId;
+        id = (String) jComboBox1.getSelectedItem();
+        cityId = DBManager.getId(id);
+        if (cityId == -1) {
+            Laptop laptop = new Laptop(jTextField1.getText(), jTextField2.getText(), Float.parseFloat(jTextField3.getText()), jTextField4.getText(), jTextField5.getText(), Integer.parseInt(jTextField7.getText()), cityId);
+            DBManager.addLaptop(laptop);
+            this.setVisible(false);
+            addItem.setVisible(true);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

@@ -12,8 +12,8 @@ package mysql;
 public class DBConstants {
     
     public static final String LAPTOP = "laptop";
-    public static final String MOBILE = "Mobile";
-    public static final String TABLET = "Tablet";
-    public static final String TELEVISION = "Television";
+    public static final String MOBILE = "mobile";
+    public static final String TABLET = "tablet";
+    public static final String TELEVISION = "television";
     
 }

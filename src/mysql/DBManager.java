@@ -33,6 +33,28 @@ public class DBManager {
             System.out.println(e);
         }
     }
+    
+    public static int getId(String id)
+    {
+        try {
+            int pass;
+            String sql = "select city_id from city_table where city_name = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, id);
+            ResultSet rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                pass = rs.getInt(1);
+                return pass;
+            }
+            
+            return -1;
+            
+        } catch (Exception e) {
+            System.out.println(e);
+            return -1;
+        }
+    }
 
     public static void removeCity(String cityName) {
         try {
@@ -115,7 +137,7 @@ public class DBManager {
             ArrayList<String> catNames = new ArrayList<>();
 
             while (rs.next()) {
-                catNames.add(rs.getString(1));
+                catNames.add(rs.getString(1).toLowerCase());
             }
 
             return catNames;
